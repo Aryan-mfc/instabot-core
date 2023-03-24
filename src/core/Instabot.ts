@@ -24,10 +24,10 @@ export class Instabot {
   private emojiServiceImpl: EmojiServiceImpl = new EmojiServiceImpl();
   private commentService: CommentService;
 
-  private mode: ModeEnum = ModeEnum.DEFAULT;
+  private mode!: ModeEnum;
 
   constructor(private instabotConfig: InstabotConfigInterface) {
-    this.logger.info(`Starting`);
+    this.logger.info(`Starting...`);
     this.commentService = new CommentService({ ...instabotConfig });
     this.commentService.execute = this.comment.bind(this);
   }
@@ -54,6 +54,7 @@ export class Instabot {
     return launch;
   }
   public async comment(args: CommentArgsInterface): Promise<void> {
+    this.logger.info(`Starting... in ${this.mode} mode`);
     const browser_launched = await this.browser();
     try {
       await this.configure(args);
@@ -115,7 +116,7 @@ export class Instabot {
       max: MAX_PHRASES,
     });
 
-    if (pensador_phrase.total === 0) {
+    if (pensador_phrase.total === 0 || this.mode === ModeEnum.RANDOM) {
       const defaultPhrases = default_phrases[randomInt(0, randPhrase)];
       phrase = defaultPhrases.text;
     }
