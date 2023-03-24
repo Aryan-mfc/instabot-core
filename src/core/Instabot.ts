@@ -127,7 +127,6 @@ export class Instabot {
       phrase = pensador_phrase.phrases[randomInt(0, randPhrase)].text;
     }
 
-
     return phrase;
   }
 
