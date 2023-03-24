@@ -1,6 +1,6 @@
 import { URL } from 'url';
 import { randomInt } from 'crypto';
-import puppeteer from 'puppeteer';
+import * as puppeteer from 'puppeteer';
 import pensador from 'pensador-promise';
 import axios from 'axios';
 
