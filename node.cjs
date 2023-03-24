@@ -17,5 +17,6 @@ const { IG_LINK, PHRASE_AUTHOR, IG_USERNAME, IG_PASSWORD } = process.env;
     await commentService.execute({
         link: IG_LINK,
         author: PHRASE_AUTHOR,
+        mode: 1
     });
 })();
