@@ -1,5 +1,5 @@
 export enum ModeEnum {
-  DEFAULT = 'DEFAULT',
-  RANDOM = 'RANDOM',
-  MANUAL = 'MANUAL',
+  DEFAULT = 0,
+  RANDOM = 1,
+  MANUAL = 2,
 }
