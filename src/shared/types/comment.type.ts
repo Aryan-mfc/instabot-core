@@ -1,4 +1,5 @@
-import puppeteer from 'puppeteer';
+import * as puppeteer from 'puppeteer';
+
 import type {
   CommentArgsInterface,
   CommonArgsInterface,
