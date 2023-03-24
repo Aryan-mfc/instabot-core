@@ -123,9 +123,11 @@ export class Instabot {
       } else {
         phrase = '😍';
       }
+    } else {
+      phrase = pensador_phrase.phrases[randomInt(0, randPhrase)].text;
     }
 
-    phrase = pensador_phrase.phrases[randomInt(0, randPhrase)].text;
+
     return phrase;
   }
 
