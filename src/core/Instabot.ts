@@ -117,8 +117,12 @@ export class Instabot {
     });
 
     if (pensador_phrase.total === 0 || this.mode === ModeEnum.RANDOM) {
-      const defaultPhrases = default_phrases[randomInt(0, randPhrase)];
-      phrase = defaultPhrases.text;
+      const defaultPhrase = default_phrases[randomInt(0, randPhrase)];
+      if (defaultPhrase) {
+        phrase = 'defaultPhrase.text';
+      } else {
+        phrase = '😍';
+      }
     }
 
     phrase = pensador_phrase.phrases[randomInt(0, randPhrase)].text;
