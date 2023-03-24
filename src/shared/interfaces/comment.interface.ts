@@ -9,6 +9,7 @@ export interface InstabotConfigInterface {
 export interface CommentArgsInterface {
   link: string;
   author: string;
+  mode?: number;
   page?: puppeteer.Page;
 }
 export interface CommonArgsInterface {
