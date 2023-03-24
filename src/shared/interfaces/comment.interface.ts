@@ -1,4 +1,4 @@
-import puppeteer from 'puppeteer';
+import * as puppeteer from 'puppeteer';
 import type { PuppeteerLaunchOptions } from 'puppeteer';
 
 export interface InstabotConfigInterface {
