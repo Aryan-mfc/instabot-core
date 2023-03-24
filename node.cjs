@@ -1,5 +1,7 @@
 #!/usr/bin/env node
+
 require("dotenv/config");
+
 const { CommentService } = require("./lib/index.js");
 const { IG_LINK, PHRASE_AUTHOR, IG_USERNAME, IG_PASSWORD } = process.env;
 
@@ -11,6 +13,7 @@ const { IG_LINK, PHRASE_AUTHOR, IG_USERNAME, IG_PASSWORD } = process.env;
             headless: true,
         },
     });
+
     await commentService.execute({
         link: IG_LINK,
         author: PHRASE_AUTHOR,
