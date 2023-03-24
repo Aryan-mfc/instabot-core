@@ -1,7 +1,6 @@
 import Instabot from '../core/Instabot';
 import { Logger } from '../utils/Logger';
 
-import { ModeEnum } from '../shared/enums/Instabot.enum';
 import type { TCommentServiceArgs, TCommentServiceExecuteArgs } from '../shared/types/comment.type';
 
 export class CommentService {
@@ -15,9 +14,11 @@ export class CommentService {
     const { loginInstagram, passwordInstagram } = this.commentArgs;
     const { link, author } = args;
     const instabot = new Instabot({ ...this.commentArgs, loginInstagram, passwordInstagram });
-    instabot.setMode = ModeEnum.DEFAULT;
+    if (args.mode) {
+      instabot.setMode = args.mode;
+    }
     try {
-      await instabot.comment({ link, author: author || 'Jesus' });
+      await instabot.comment({ link, author: author || 'Jesus', mode: args.mode });
     } catch (error) {
       this.logger.error(JSON.stringify(error));
     }
